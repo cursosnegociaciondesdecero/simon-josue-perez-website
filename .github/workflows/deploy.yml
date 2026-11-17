@@ -27,9 +27,8 @@ jobs:
         uses: actions/configure-pages@v5
       - run: npm ci
       - run: npm run build
-        env:
-          # Con dominio propio deja esto vacío; sin dominio usa /nombre-del-repo
-          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        # El sitio se sirve en www.simonjosueperez.com (dominio propio), sin basePath.
+        # Sin dominio propio habría que usar: NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
       - run: touch out/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
